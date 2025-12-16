@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Biblio Cervantes" />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>Biblioteca Instituto Cervantes Múnich</title>
+
+  <!-- OPCIONAL (recomendado): sustituya estas rutas por sus iconos -->
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png"> -->
+  <!-- <link rel="icon" sizes="192x192" href="icons/icon-192.png"> -->
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --card: #121925;
+      --card2: #0f1622;
+      --text: #eef3fb;
+      --muted: #b8c4d8;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(97,130,255,.18), transparent 60%),
+                  radial-gradient(900px 500px at 120% 30%, rgba(255,176,97,.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      padding: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right))
+               max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+    }
+
+    .wrap{ max-width: 920px; margin: 0 auto; }
+    header{
+      display:flex; gap:16px; align-items: flex-start; justify-content: space-between;
+      padding: 10px 0 16px 0;
+    }
+    .title{
+      line-height: 1.15;
+    }
+    h1{
+      font-size: 28px;
+      margin:0 0 6px 0;
+      letter-spacing: .2px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+    @media (min-width: 720px){
+      .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+
+    .tile{
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: var(--text);
+      min-height: 120px;
+      transition: transform .08s ease, border-color .08s ease;
+    }
+    .tile:active{ transform: scale(.99); border-color: rgba(255,255,255,.18); }
+    .kicker{
+      font-size: 13px;
+      color: var(--muted);
+      margin:0;
+    }
+    .label{
+      font-size: 18px;
+      margin:0;
+      font-weight: 650;
+      letter-spacing: .2px;
+    }
+    .hint{
+      font-size: 13px;
+      color: rgba(238,243,251,.75);
+      margin:0;
+    }
+
+    .panel{
+      margin-top: 14px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      box-shadow: var(--shadow);
+    }
+    .panel h2{
+      margin:0 0 10px 0;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .row{
+      display:flex; flex-wrap: wrap; gap:10px; align-items: center; justify-content: space-between;
+    }
+    .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      text-decoration:none;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .muted{ color: var(--muted); font-size: 14px; margin: 6px 0 0 0; }
+
+    footer{
+      margin-top: 14px;
+      color: rgba(184,196,216,.8);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .small{
+      color: rgba(184,196,216,.8);
+      font-size: 12px;
+      margin: 6px 0 0 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Biblioteca — Instituto Cervantes Múnich</h1>
+        <p class="sub">Acceso rápido a catálogo, altas, actividades, horarios y contacto.</p>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="Accesos rápidos">
+      <a class="tile" href="http://catalogo-bibliotecas.cervantes.es/general/abnetcl.exe?SUBC=DEU/MUNI">
+        <p class="kicker">OPAC</p>
+        <p class="label">Catálogo</p>
+        <p class="hint">Buscar, consultar disponibilidad y cuenta.</p>
+      </a>
+
+      <a class="tile" href="https://catalogo-bibliotecas.cervantes.es/general/abnetcl.exe?ACC=216&AUX=1&lecobi=MUNI">
+        <p class="kicker">Alta</p>
+        <p class="label">Hacerse socio</p>
+        <p class="hint">Formulario de inscripción.</p>
+      </a>
+
+      <a class="tile" href="https://munich.cervantes.es/es/biblioteca_espanol/actividades.htm">
+        <p class="kicker">Agenda</p>
+        <p class="label">Actividades</p>
+        <p class="hint">Clubes, cuentacuentos y eventos.</p>
+      </a>
+
+      <a class="tile" href="https://www.perplexity.ai/spaces/experto-en-la-biblioteca-1HKIGrAhQiqwFUtlEv689A">
+        <p class="kicker">Ayuda</p>
+        <p class="label">Preguntas frecuentes</p>
+        <p class="hint">Espacio de Perplexity.</p>
+      </a>
+
+      <a class="tile" href="#horario">
+        <p class="kicker">Info</p>
+        <p class="label">Horario</p>
+        <p class="hint">Apertura semanal.</p>
+      </a>
+
+      <a class="tile" href="#contacto">
+        <p class="kicker">Info</p>
+        <p class="label">Contacto</p>
+        <p class="hint">Teléfono y email.</p>
+      </a>
+    </section>
+
+    <section id="horario" class="panel" aria-label="Horario">
+      <h2>Horario</h2>
+      <p class="muted">
+        Lunes a jueves: 10:00–13:00 y 14:00–18:00 h.<br>
+        Viernes: 10:00–14:00 h.
+      </p>
+    </section>
+
+    <section id="contacto" class="panel" aria-label="Contacto">
+      <h2>Contacto</h2>
+      <div class="row">
+        <a class="pill" href="tel:+498929071814">Tel.: +49 89 29 07 18 14</a>
+        <a class="pill" href="mailto:bibmun@cervantes.es">E-mail: bibmun@cervantes.es</a>
+      </div>
+      <p class="small">Consejo: si el iPad es de uso público, active “Acceso guiado” para que no puedan salir de esta pantalla.</p>
+    </section>
+
+    <footer>
+      Nota técnica: el enlace del catálogo es <span style="white-space:nowrap;">http://</span>. Si en algún momento el servicio ofrece versión <span style="white-space:nowrap;">https://</span>, conviene cambiarlo para evitar advertencias en redes estrictas.
+    </footer>
+  </div>
+</body>
+</html>
